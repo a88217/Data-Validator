@@ -31,6 +31,13 @@ checkstyle {
     maxErrors = 0
 }
 
+checkstyleMain {
+    source ='app/src/main/java'
+}
+checkstyleTest {
+    source ='app/src/test/java'
+}
+
 application {
     mainClass = 'hexlet.code.App'
 }
