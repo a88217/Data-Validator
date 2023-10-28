@@ -4,7 +4,7 @@
 ![example workflow](https://github.com/a88217/java-project-78/actions/workflows/workflow.yml/badge.svg)
 
 ### Codeclimate Maintainability:
-[![Maintainability](https://api.codeclimate.com/v1/badges/098528b02ee65fd10d06/maintainability)](https://codeclimate.com/github/a88217/java-project-78/maintainability)
+[![Maintainability](https://api.codeclimate.com/v1/badges/f5b26342a172dc6af069/maintainability)](https://codeclimate.com/github/a88217/java-project-78/maintainability)
 
 ### Codeclimate TestCoverage:
-[![Test Coverage](https://api.codeclimate.com/v1/badges/098528b02ee65fd10d06/test_coverage)](https://codeclimate.com/github/a88217/java-project-78/test_coverage)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/f5b26342a172dc6af069/test_coverage)](https://codeclimate.com/github/a88217/java-project-78/test_coverage)
