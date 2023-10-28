@@ -1,0 +1,51 @@
+plugins {
+    id 'application'
+    id 'checkstyle'
+    id 'jacoco'
+}
+
+group = 'hexlet.code'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    // https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-engine
+    testImplementation group: 'org.junit.jupiter', name: 'junit-jupiter-engine', version: '5.10.0'
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+    implementation 'info.picocli:picocli:4.7.5'
+    // https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind
+    implementation group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.15.2'
+    implementation 'com.fasterxml.jackson.dataformat:jackson-dataformat-yaml:2.15.3'
+    implementation group: 'com.puppycrawl.tools', name: 'checkstyle', version: '10.12.4'
+    implementation group: 'commons-io', name: 'commons-io', version: '2.14.0'
+}
+
+checkstyle {
+    toolVersion '10.3.1'
+    configFile file("config/checkstyle/checkstyle.xml")
+    ignoreFailures = false
+    maxWarnings = 0
+    maxErrors = 0
+}
+
+application {
+    mainClass = 'hexlet.code.App'
+}
+
+test {
+    useJUnitPlatform()
+}
+
+jacoco {
+    toolVersion = "0.8.9"
+    reportsDirectory = layout.buildDirectory.dir('reports/jacoco')
+}
+
+jacocoTestReport {
+    reports {
+        xml.required = true
+    }
+}
