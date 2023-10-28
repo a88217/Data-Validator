@@ -38,6 +38,11 @@ checkstyleTest {
     source ='app/src/test/java'
 }
 
+tasks.named('test', Test) {
+    useJUnitPlatform()
+    finalizedBy jacocoTestReport // report is always generated after tests run
+}
+
 application {
     mainClass = 'hexlet.code.App'
 }
