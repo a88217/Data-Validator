@@ -2,12 +2,10 @@ package hexlet.code;
 
 public class App {
     public static void main(String[] args) {
-        System.out.println("Hello World!");
         hello();
     }
-
     public static String hello() {
+        System.out.println("Hello World!");
         return "Hello World!";
     }
-
 }
