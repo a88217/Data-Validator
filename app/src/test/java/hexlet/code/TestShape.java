@@ -54,6 +54,8 @@ public class TestShape {
         human4.put("age", -5);
         actual = schema.isValid(human3);
         assertEquals(expected, actual);
+        actual = schema.isValid(null);
+        assertEquals(expected, actual);
     }
 
 }

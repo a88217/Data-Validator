@@ -35,6 +35,7 @@ public class MapSchema extends BaseSchema{
             }
         }
         if (isShape) {
+            if (Objects.isNull(inputMap)) {return false;}
             Map input = (Map) inputMap;
             var schemasKeys = schemas.keySet();
             for (String key : schemasKeys) {
