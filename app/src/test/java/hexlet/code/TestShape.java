@@ -56,7 +56,9 @@ public class TestShape {
         human4.put("age", -5);
         actual = schema.isValid(human3);
         assertEquals(expected, actual);
-
+        Map<String, Object> human5 = new HashMap<>();
+        actual = schema.isValid(5);
+        assertEquals(expected, actual);
     }
 
 }

@@ -35,11 +35,14 @@ public class MapSchema extends BaseSchema{
             }
         }
         if (isShape) {
-            if (Objects.isNull(inputMap)) {return true;}
-            Map input = (Map) inputMap;
-            var schemasKeys = schemas.keySet();
-            for (String key : schemasKeys) {
-                return schemas.get(key).isValid(input.get(key));
+            if (Objects.nonNull(inputMap)) {
+                if (!(inputMap instanceof Map)) {return false;}
+                Map input = (Map) inputMap;
+                var schemasKeys = schemas.keySet();
+                for (String key : schemasKeys) {
+                    if (!((Map) inputMap).containsKey(key)) {return false;}
+                    return schemas.get(key).isValid(input.get(key));
+                }
             }
         }
         return true;
