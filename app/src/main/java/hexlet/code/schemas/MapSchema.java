@@ -1,5 +1,7 @@
 package hexlet.code.schemas;
 
+import hexlet.code.Validator;
+
 import java.util.Map;
 import java.util.Objects;
 
@@ -7,7 +9,9 @@ public class MapSchema extends BaseSchema{
 
     private boolean isRequired = false;
     private boolean isSizeOf = false;
+    private boolean isShape = false;
     private int sizeOf;
+    private Map<String, BaseSchema> schemas;
 
     public MapSchema required() {
         isRequired = true;
@@ -32,6 +36,18 @@ public class MapSchema extends BaseSchema{
                 return false;
             }
         }
+        if (isShape) {
+            Map input = (Map) inputMap;
+            var schemasKeys = schemas.keySet();
+            for (String key : schemasKeys) {
+                return schemas.get(key).isValid(input.get(key));
+            }
+        }
         return true;
+    }
+
+    public void shape(Map<String, BaseSchema> schemas) {
+        isShape = true;
+        this.schemas = schemas;
     }
 }

@@ -1,7 +1,6 @@
 package hexlet.code;
 
 import hexlet.code.schemas.MapSchema;
-import net.sf.saxon.ma.map.MapFunctionSet;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import java.util.Map;
