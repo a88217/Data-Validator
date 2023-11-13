@@ -6,7 +6,7 @@ import java.util.Objects;
 public class MapSchema extends BaseSchema{
 
     private boolean isRequired = false;
-    private boolean isSizeOf = false;
+    private boolean isSizeof = false;
     private boolean isShape = false;
     private int sizeof;
     private Map<String, BaseSchema> schemas;
@@ -17,7 +17,7 @@ public class MapSchema extends BaseSchema{
     }
 
     public MapSchema sizeof(int sizeof) {
-        isSizeOf = true;
+        isSizeof = true;
         this.sizeof = sizeof;
         return this;
     }
@@ -29,7 +29,7 @@ public class MapSchema extends BaseSchema{
                 return false;
             }
         }
-        if (isSizeOf) {
+        if (isSizeof) {
             if (((Map) inputMap).size() != sizeof) {
                 return false;
             }
