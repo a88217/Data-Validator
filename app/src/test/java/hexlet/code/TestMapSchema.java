@@ -45,10 +45,10 @@ public class TestMapSchema {
     public void testSchemeSizeOf() throws Exception {
         schema.required();
         boolean expected = false;
-        boolean actual = schema.sizeOf(3).isValid(inputMap);
+        boolean actual = schema.sizeof(3).isValid(inputMap);
         assertEquals(expected, actual);
         expected = true;
-        actual = schema.sizeOf(2).isValid(inputMap);
+        actual = schema.sizeof(2).isValid(inputMap);
         assertEquals(expected, actual);
     }
 
