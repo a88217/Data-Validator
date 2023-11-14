@@ -54,8 +54,8 @@ public final class MapSchema extends BaseSchema {
         return true;
     }
 
-    public void shape(Map<String, BaseSchema> schemas) {
+    public void shape(Map<String, BaseSchema> validationSchemas) {
         isShape = true;
-        this.schemas = schemas;
+        schemas = validationSchemas;
     }
 }

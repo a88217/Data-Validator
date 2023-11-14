@@ -14,9 +14,9 @@ public final class StringSchema extends BaseSchema {
         return this;
     }
 
-    public StringSchema minLength(int minLength) {
+    public StringSchema minLength(int min) {
         isMinLength = true;
-        this.minLength = minLength;
+        minLength = min;
         return this;
     }
     public StringSchema contains(String substring) {
