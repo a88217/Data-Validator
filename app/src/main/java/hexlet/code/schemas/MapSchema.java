@@ -3,7 +3,7 @@ package hexlet.code.schemas;
 import java.util.Map;
 import java.util.Objects;
 
-public class MapSchema extends BaseSchema{
+public final class MapSchema extends BaseSchema {
 
     private boolean isRequired = false;
     private boolean isSizeof = false;
@@ -36,11 +36,15 @@ public class MapSchema extends BaseSchema{
         }
         if (isShape) {
             if (Objects.nonNull(inputMap)) {
-                if (!(inputMap instanceof Map)) {return false;}
+                if (!(inputMap instanceof Map)) {
+                    return false;
+                }
                 Map input = (Map) inputMap;
                 var schemasKeys = schemas.keySet();
                 for (String key : schemasKeys) {
-                    if (!((Map) inputMap).containsKey(key)) {return false;}
+                    if (!((Map) inputMap).containsKey(key)) {
+                        return false;
+                    }
                     if (!schemas.get(key).isValid(input.get(key))) {
                         return false;
                     }
