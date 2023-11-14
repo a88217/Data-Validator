@@ -41,7 +41,9 @@ public class MapSchema extends BaseSchema{
                 var schemasKeys = schemas.keySet();
                 for (String key : schemasKeys) {
                     if (!((Map) inputMap).containsKey(key)) {return false;}
-                    return schemas.get(key).isValid(input.get(key));
+                    if (!schemas.get(key).isValid(input.get(key))) {
+                        return false;
+                    }
                 }
             }
         }

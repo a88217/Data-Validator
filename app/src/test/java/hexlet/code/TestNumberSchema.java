@@ -41,11 +41,13 @@ public class TestNumberSchema {
 
     @Test
     public void testSchemePositive() throws Exception {
-        schema.required();
         boolean expected = false;
         boolean actual = schema.positive().isValid(-10);
         assertEquals(expected, actual);
-        actual = schema.isValid(0);
+        actual = schema.positive().isValid(0);
+        assertEquals(expected, actual);
+        expected = true;
+        actual = schema.positive().isValid(5);
         assertEquals(expected, actual);
     }
 
