@@ -30,7 +30,7 @@ public final class MapSchema extends BaseSchema {
             }
         }
         if (isSizeof) {
-            if (((Map) inputMap).size() != size) {
+            if (((Map) inputMap).size() != sizeOf) {
                 return false;
             }
         }
