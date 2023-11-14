@@ -6,14 +6,14 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class TestStringSchema {
+public final class TestStringSchema {
 
-    Validator v;
-    StringSchema schema;
+    private Validator v;
+    private StringSchema schema;
 
     @BeforeEach
     public void beforeEach() throws Exception {
-        v = new Validator() ;
+        v = new Validator();
         schema = v.string();
     }
 

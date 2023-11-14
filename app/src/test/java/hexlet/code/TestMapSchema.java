@@ -10,7 +10,7 @@ import java.util.Map;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class TestMapSchema {
+public final class TestMapSchema {
 
     private Validator v;
     private MapSchema schema;
@@ -19,7 +19,7 @@ public class TestMapSchema {
 
     @BeforeEach
     public void beforeEach() throws Exception {
-        v = new Validator() ;
+        v = new Validator();
         schema = v.map();
         inputMap = Map.of(1, "one", 2, "two");
         emptyMap = new HashMap<>();
