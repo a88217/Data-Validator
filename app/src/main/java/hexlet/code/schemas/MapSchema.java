@@ -8,7 +8,7 @@ public final class MapSchema extends BaseSchema {
     private boolean isRequired = false;
     private boolean isSizeof = false;
     private boolean isShape = false;
-    private int size;
+    private int sizeOf;
     private Map<String, BaseSchema> schemas;
 
     public MapSchema required() {
@@ -18,7 +18,7 @@ public final class MapSchema extends BaseSchema {
 
     public MapSchema sizeof(int size) {
         isSizeof = true;
-        this.size = size;
+        this.sizeOf = size;
         return this;
     }
 

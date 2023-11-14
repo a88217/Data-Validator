@@ -19,10 +19,10 @@ public final class NumberSchema extends BaseSchema {
         isPositive = true;
         return this;
     }
-    public NumberSchema range(int minNumber, int maxNumber) {
+    public NumberSchema range(int min, int max) {
         isRange = true;
-        this.minNumber = minNumber;
-        this.maxNumber = maxNumber;
+        minNumber = min;
+        maxNumber = max;
         return this;
     }
 
