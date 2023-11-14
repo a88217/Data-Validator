@@ -12,9 +12,10 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class TestMapSchema {
 
-    Validator v;
-    MapSchema schema;
-    Map<Integer, String> inputMap, emptyMap;
+    private Validator v;
+    private MapSchema schema;
+    private Map<Integer, String> inputMap;
+    private Map<Integer, String> emptyMap;
 
     @BeforeEach
     public void beforeEach() throws Exception {

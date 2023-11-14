@@ -2,7 +2,7 @@ package hexlet.code.schemas;
 
 import java.util.Objects;
 
-public class StringSchema extends BaseSchema{
+public final class StringSchema extends BaseSchema {
 
     private boolean isRequired = false;
     private boolean isMinLength = false;

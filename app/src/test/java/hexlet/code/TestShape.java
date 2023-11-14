@@ -10,15 +10,15 @@ import java.util.Map;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class TestShape {
+public final class TestShape {
 
-    Validator v;
-    MapSchema schema;
-    Map<Integer, String> inputMap;
+    private Validator v;
+    private MapSchema schema;
+    private Map<Integer, String> inputMap;
 
     @BeforeEach
     public void beforeEach() throws Exception {
-        v = new Validator() ;
+        v = new Validator();
         schema = v.map();
         Map<String, BaseSchema> schemas = new HashMap<>();
         schemas.put("name", v.string().required());
