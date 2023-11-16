@@ -4,7 +4,7 @@ import java.util.Map;
 import java.util.HashMap;
 import java.util.Objects;
 
-public class BaseSchema {
+public abstract class BaseSchema {
 
     Map<String, Object> checks = new HashMap();
 
