@@ -1,11 +1,12 @@
 package hexlet.code.schemas;
 
-
-import java.util.*;
+import java.util.Map;
+import java.util.HashMap;
+import java.util.Objects;
 
 public class BaseSchema {
 
-    public Map<String, Object> checks = new HashMap();
+    Map<String, Object> checks = new HashMap();
 
     /**
      * Method can be safely overridden.
@@ -44,7 +45,8 @@ public class BaseSchema {
             }
         }
         if (checks.containsKey("rangeMin")) {
-            if ((Integer) input < (Integer) checks.get("rangeMin") || (Integer) input > (Integer) checks.get("rangeMax")) {
+            if ((Integer) input <
+                    (Integer) checks.get("rangeMin") || (Integer) input > (Integer) checks.get("rangeMax")) {
                 return false;
             }
         }

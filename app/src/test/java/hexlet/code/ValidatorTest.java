@@ -20,8 +20,8 @@ public final class ValidatorTest {
     private NumberSchema numberSchema;
     private Map<Integer, String> inputMap;
     private Map<Integer, String> emptyMap;
-    boolean expectedTrue = true;
-    boolean expectedFalse = false;
+    private boolean expectedTrue = true;
+    private boolean expectedFalse = false;
 
     @BeforeEach
     public void beforeEach() throws Exception {
