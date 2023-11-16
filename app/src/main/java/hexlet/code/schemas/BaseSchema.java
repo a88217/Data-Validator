@@ -45,8 +45,8 @@ public class BaseSchema {
             }
         }
         if (checks.containsKey("rangeMin")) {
-            if ((Integer) input <
-                    (Integer) checks.get("rangeMin") || (Integer) input > (Integer) checks.get("rangeMax")) {
+            if ((Integer) input
+                    < (Integer) checks.get("rangeMin") || (Integer) input > (Integer) checks.get("rangeMax")) {
                 return false;
             }
         }
