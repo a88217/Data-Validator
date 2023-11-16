@@ -1,47 +1,20 @@
 package hexlet.code.schemas;
 
-import java.util.Objects;
-
 public final class StringSchema extends BaseSchema {
 
-    private boolean isRequired = false;
-    private boolean isMinLength = false;
-    private boolean isContains = false;
-    private int minLength;
-    private String contains;
     public StringSchema required() {
-        isRequired = true;
+        checks.put("stringRequired", true);
         return this;
     }
 
     public StringSchema minLength(int min) {
-        isMinLength = true;
-        minLength = min;
-        return this;
-    }
-    public StringSchema contains(String substring) {
-        isContains = true;
-        this.contains = substring;
+        checks.put("minLength", min);
         return this;
     }
 
-    @Override
-    public boolean isValid(Object inputString) {
-        if (isRequired) {
-            if (Objects.isNull(inputString) || !(inputString instanceof String) || inputString.equals("")) {
-                return false;
-            }
-        }
-        if (isMinLength) {
-            if (inputString.toString().length() < minLength) {
-                return false;
-            }
-        }
-        if (isContains) {
-            if (!inputString.toString().contains(contains)) {
-                return false;
-            }
-        }
-        return true;
+    public StringSchema contains(String substring) {
+        checks.put("contains", substring);
+        return this;
     }
+
 }
