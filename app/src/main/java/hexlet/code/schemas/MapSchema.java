@@ -26,7 +26,7 @@ public final class MapSchema extends BaseSchema {
                 if (!(input instanceof Map)) {
                     return false;
                 }
-                Map<String, BaseSchema> schemas = validationSchemas;
+                this.schemas = validationSchemas;
                 var schemasKeys = (schemas.keySet());
                 for (String key : schemasKeys) {
                     if (!((Map) input).containsKey(key)) {

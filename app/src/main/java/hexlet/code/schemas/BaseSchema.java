@@ -8,7 +8,7 @@ public abstract class BaseSchema {
 
     private Map<String, Predicate> checks = new HashMap();
 
-    public void addCheck(String checkName, Predicate check) {
+    public final void addCheck(String checkName, Predicate check) {
         checks.put(checkName, check);
     }
 
