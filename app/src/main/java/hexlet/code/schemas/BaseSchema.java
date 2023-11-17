@@ -3,10 +3,15 @@ package hexlet.code.schemas;
 import java.util.Map;
 import java.util.HashMap;
 import java.util.Objects;
+import java.util.function.Predicate;
 
 public abstract class BaseSchema {
 
-    Map<String, Object> checks = new HashMap();
+    private Map<String, Predicate> checks = new HashMap();
+
+    public void addCheck(String checkName, Predicate check) {
+        checks.put(checkName, check);
+    }
 
     /**
      * Method can be safely overridden.
@@ -14,7 +19,13 @@ public abstract class BaseSchema {
      @return some boolean value.
      * */
     public boolean isValid(Object input) {
-        if (checks.containsKey("mapRequired")) {
+        boolean result = true;
+        for (var check : checks.keySet()) {
+            if (!checks.get(check).test(input)) {
+                result = false;
+            }
+        }
+        /*    if (checks.containsKey("mapRequired")) {
             if (Objects.isNull(input) || !(input instanceof Map)) {
                 return false;
             }
@@ -73,5 +84,8 @@ public abstract class BaseSchema {
             }
         }
         return true;
+
+         */
+        return result;
     }
 }
