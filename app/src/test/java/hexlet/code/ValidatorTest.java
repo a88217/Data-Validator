@@ -15,26 +15,18 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public final class ValidatorTest {
 
     private Validator v;
-    private MapSchema mapSchema;
-    private StringSchema stringSchema;
-    private NumberSchema numberSchema;
-    private boolean expectedTrue = true;
-    private boolean expectedFalse = false;
 
     @BeforeEach
     public void beforeEach() throws Exception {
         v = new Validator();
-        mapSchema = v.map();
-        stringSchema = v.string();
-        numberSchema = v.number();
-        Map<String, BaseSchema> schemas = new HashMap<>();
-        schemas.put("name", v.string().required());
-        schemas.put("age", v.number().positive());
-        mapSchema.shape(schemas);
     }
 
     @Test
     public void testStringValidator() throws Exception {
+        StringSchema stringSchema;
+        stringSchema = v.string();
+        boolean expectedTrue = true;
+        boolean expectedFalse = false;
         boolean actual = stringSchema.isValid("");
         assertEquals(expectedTrue, actual);
 
@@ -69,6 +61,10 @@ public final class ValidatorTest {
 
     @Test
     public void testNumberValidator() throws Exception {
+        NumberSchema numberSchema;
+        numberSchema = v.number();
+        boolean expectedTrue = true;
+        boolean expectedFalse = false;
         boolean actual = numberSchema.isValid(null);
         assertEquals(expectedTrue, actual);
 
@@ -97,7 +93,14 @@ public final class ValidatorTest {
 
     @Test
     public void testMapValidator() throws Exception {
-
+        MapSchema mapSchema;
+        mapSchema = v.map();
+        Map<String, BaseSchema> schemas = new HashMap<>();
+        schemas.put("name", v.string().required());
+        schemas.put("age", v.number().positive());
+        mapSchema.shape(schemas);
+        boolean expectedTrue = true;
+        boolean expectedFalse = false;
         Map<String, Object> human1 = new HashMap<>();
         human1.put("name", "Kolya");
         human1.put("age", null);
