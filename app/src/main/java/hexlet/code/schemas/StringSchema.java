@@ -5,9 +5,12 @@ import java.util.function.Predicate;
 
 public final class StringSchema extends BaseSchema {
 
+    public StringSchema() {
+        addCheck("isInstance", x -> ((x instanceof String) || Objects.isNull(x)));
+    }
+
     public StringSchema required() {
-        Predicate<Object> stringRequired
-                = input -> (Objects.nonNull(input) && (input instanceof String) && !input.equals(""));
+        Predicate<Object> stringRequired = input -> (!isNull(input));
         addCheck("stringRequired", stringRequired);
         return this;
     }
@@ -22,6 +25,10 @@ public final class StringSchema extends BaseSchema {
         Predicate<Object> contains = input -> (input.toString().contains(substring));
         addCheck("contains", contains);
         return this;
+    }
+
+    public boolean isNull(Object obj) {
+        return (Objects.isNull(obj) || obj.equals(""));
     }
 
 }

@@ -18,8 +18,6 @@ public final class ValidatorTest {
     private MapSchema mapSchema;
     private StringSchema stringSchema;
     private NumberSchema numberSchema;
-    private Map<Integer, String> inputMap;
-    private Map<Integer, String> emptyMap;
     private boolean expectedTrue = true;
     private boolean expectedFalse = false;
 

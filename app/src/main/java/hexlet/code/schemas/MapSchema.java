@@ -8,14 +8,18 @@ public final class MapSchema extends BaseSchema {
 
     private Map<String, BaseSchema> schemas;
 
+    public MapSchema() {
+        addCheck("isInstance", x -> ((x instanceof Map) || Objects.isNull(x)));
+    }
+
     public MapSchema required() {
-        Predicate<Object> mapRequired = input -> (Objects.nonNull(input) && (input instanceof Map));
+        Predicate<Object> mapRequired = input -> (!isNull(input));
         addCheck("mapRequired", mapRequired);
         return this;
     }
 
     public MapSchema sizeof(int size) {
-        Predicate<Object> sizeof = input -> (((Map) input).size() == size);
+        Predicate<Object> sizeof = input -> (isNull(input) || ((Map) input).size() == size);
         addCheck("sizeof", sizeof);
         return this;
     }
@@ -23,9 +27,6 @@ public final class MapSchema extends BaseSchema {
     public MapSchema shape(Map<String, BaseSchema> validationSchemas) {
         Predicate<Object> shape = input -> {
             if (Objects.nonNull(input)) {
-                if (!(input instanceof Map)) {
-                    return false;
-                }
                 this.schemas = validationSchemas;
                 var schemasKeys = (schemas.keySet());
                 for (String key : schemasKeys) {
@@ -39,8 +40,14 @@ public final class MapSchema extends BaseSchema {
             }
             return true;
         };
+
         addCheck("shape", shape);
         return this;
     }
 
+    public boolean isNull(Object obj) {
+        return Objects.isNull(obj);
+    }
 }
+
+
