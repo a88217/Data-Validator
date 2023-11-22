@@ -27,5 +27,5 @@ public final class NumberSchema extends BaseSchema {
 
     public boolean isNull(Object obj) {
         return Objects.isNull(obj);
-        }
+    }
 }
